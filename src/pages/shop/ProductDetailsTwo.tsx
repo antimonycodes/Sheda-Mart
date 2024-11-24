@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Star, ShoppingCart } from "lucide-react";
 import img1 from "../../assets/retro-sunglass-1.png";
 import img2 from "../../assets/retro-sunglass-2.png";

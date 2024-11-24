@@ -1,12 +1,12 @@
 import rightArrow from "../../assets/arrowright.svg";
-import React, { useState } from "react";
-import { Star, ShoppingCart } from "lucide-react";
+import { useState } from "react";
+// import { Star, ShoppingCart } from "lucide-react";
 import img1 from "../../assets/retro-sunglass-1.png";
 import img2 from "../../assets/retro-sunglass-2.png";
 import img3 from "../../assets/retro-sunglass-3.png";
 import img4 from "../../assets/retro-sunglass-4.png";
 import UseStarRating from "@/utils/UseStarRating";
-import FeaturedProducts from "@/components/Homepage/FeaturedProducts";
+// import FeaturedProducts from "@/components/Homepage/FeaturedProducts";
 import NewArrival from "@/components/Homepage/NewArrival";
 import Newsletter from "@/components/Homepage/Newsletter";
 // import { UseStarRating } from "@/utils/UseStarRating";

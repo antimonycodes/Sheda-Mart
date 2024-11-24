@@ -4,8 +4,8 @@ import Nav from "./components/Nav";
 import Homepage from "./pages/shop/Homepage";
 import Categories from "./pages/shop/Categories";
 import Category from "./pages/shop/Category";
-import ProductDetails from "./pages/shop/ProductDetails";
-import ProductDetailsTwo from "./pages/shop/ProductDetailsTwo";
+// import ProductDetails from "./pages/shop/ProductDetails";
+// import ProductDetailsTwo from "./pages/shop/ProductDetailsTwo";
 import P from "./pages/shop/P";
 
 function App() {
