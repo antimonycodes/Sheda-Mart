@@ -1,4 +1,4 @@
-import heroVideo from "../assets/shedaMart.mp4";
+import heroVideo from "../../assets/shedaMart.mp4";
 
 const Hero = () => {
   return (
@@ -15,14 +15,14 @@ const Hero = () => {
       <div className=" absolute top-0 left-0 h-full bg-black bg-opacity-50 inset-0"></div>
 
       {/* Overlay (Optional) */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full bg-black bg-opacity-30 text-white text-center px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full  text-white text-center px-4">
         <h1 className="text-3xl md:text-5xl font-bold mb-4">
           Welcome to SHEDA MART
         </h1>
         <p className="text-lg md:text-xl mb-6">
           Your one-stop shop for everything you need
         </p>
-        <button className="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded-md">
+        <button className=" bg-burgundy text-white font-semibold py-2 px-4 rounded-md">
           Shop Now
         </button>
       </div>
