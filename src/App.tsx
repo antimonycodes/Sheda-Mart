@@ -7,6 +7,8 @@ import Category from "./pages/shop/Category";
 // import ProductDetails from "./pages/shop/ProductDetails";
 // import ProductDetailsTwo from "./pages/shop/ProductDetailsTwo";
 import P from "./pages/shop/P";
+import Cart from "./pages/shop/Cart";
+import Newsletter from "./components/Homepage/Newsletter";
 
 function App() {
   return (
@@ -20,7 +22,9 @@ function App() {
         {/* <Route path="/details" element={<ProductDetails />} /> */}
         {/* <Route path="/details" element={<ProductDetailsTwo />} /> */}
         <Route path="/details" element={<P />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
+      <Newsletter />
       <Footer />
     </>
   );

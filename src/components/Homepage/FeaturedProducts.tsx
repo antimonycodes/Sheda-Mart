@@ -35,11 +35,32 @@ const FeaturedProducts = () => {
     slidesToShow: 6,
     slidesToScroll: 1,
     autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1024, // Large devices
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 768, // Medium devices
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480, // Small devices
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <div className="py-12 px-4 md:mx-20 bg-[#F5DDD140]">
+    <div className="py-12 px-4  bg-[#F5DDD140]">
       <Slider {...settings}>
         {products.map((product) => (
           <div

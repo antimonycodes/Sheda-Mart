@@ -5,7 +5,7 @@ const Categories = () => {
   return (
     <div className="">
       <CategoriesList />
-      <Newsletter />
+      {/* <Newsletter /> */}
     </div>
   );
 };

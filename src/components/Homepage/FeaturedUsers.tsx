@@ -16,16 +16,37 @@ const FeaturedUsers = () => {
     slidesToShow: 4,
     slidesToScroll: 1,
     autoplay: true,
+    responsive: [
+      {
+        breakpoint: 1024, // Large devices
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+        },
+      },
+      {
+        breakpoint: 768, // Medium devices
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 480, // Small devices
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
 
   return (
-    <div className="py-12 px-4 md:px-20 mx-auto">
+    <div className="mx-auto">
       <h1 className="text-3xl font-bold text-center mb-8">
         Tag @Shedamart to share your Sheda style
       </h1>
-      <Slider {...settings}>
+      <Slider {...settings} className=" flex gap-4">
         {images.map((img) => (
           <div>
             <img src={img} alt="" />

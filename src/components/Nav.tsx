@@ -61,12 +61,14 @@ const Nav = () => {
               Account
             </h1>
           </div>
-          <div className=" flex items-center gap-2">
-            <img src={cart} alt="Cart" />
-            <h1 className=" hidden md:block font-semibold text-greyTitle">
-              Cart
-            </h1>
-          </div>
+          <Link to="/cart">
+            <div className=" flex items-center gap-2">
+              <img src={cart} alt="Cart" />
+              <h1 className=" hidden md:block font-semibold text-greyTitle">
+                Cart
+              </h1>
+            </div>
+          </Link>
         </div>
       </div>
 

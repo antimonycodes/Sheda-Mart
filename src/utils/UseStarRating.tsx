@@ -8,7 +8,7 @@ const UseStarRating = ({
   size?: "sm" | "md";
 }) => {
   return (
-    <div className="flex">
+    <div className="flex ">
       {[1, 2, 3, 4, 5].map((star: any) => (
         <Star
           key={star}

@@ -43,14 +43,14 @@ const ShedaTribeDeals = () => {
   ];
 
   return (
-    <div className="py md:px-20">
+    <div className="">
       {/* Tribe Banner */}
       <div className="bg-[#800020] text-white mx-auto py-12 w-full px-3 rounded-lg mb-8 flex items-center justify-center">
-        <div className=" flex gap-4 items-center mx-auto px-32">
+        <div className=" flex gap-4 items-center mx-auto md:px-32">
           <h2 className=" md:text-lg xl:text-xl font-semibold">
             Be a part of Sheda Tribe
           </h2>
-          <p className="text-sm md:text-base opacity-90 max-w-[60%]  inline">
+          <p className=" text-xs md:text-sm lg:text-base opacity-90 max-w-[60%]  inline">
             Join today to get access to exclusive deals hand fed with stories
             spice & trending lifestyle, gifts and more
           </p>

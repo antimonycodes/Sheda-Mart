@@ -28,11 +28,13 @@ const Latests = () => {
     },
   ];
   return (
-    <div className=" py md:px-20 mb-4">
+    <div className=" mb-4">
       <div>
-        <div className="latest-gradient rounded-[12px] text-white p-6 mb-6 flex items-center justify-around">
-          <h2 className=" text-6xl font-bold">The Latest</h2>
-          <p className=" text-2xl ">Discover what's new at Sheda Mart</p>
+        <div className="latest-gradient rounded-[12px] text-white p-4 lg:p-6 mb-6 flex items-center justify-around">
+          <h2 className=" basis-1/2 lg:text-6xl font-bold">The Latest</h2>
+          <p className=" text-xs lg:text-2xl ">
+            Discover what's new at Sheda Mart
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">

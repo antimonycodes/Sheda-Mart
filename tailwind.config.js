@@ -4,6 +4,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      screens: {
+        xs: "240px",
+        mobile: "365px",
+      },
       colors: {
         grey: "#302F2F",
         lightGrey: "#5B5853",
@@ -13,6 +17,7 @@ export default {
         greyBody: "#302F2F",
         greyDark: "#0F0E0E",
         greyBorder: "#ABA9AA",
+        greyDisabled: "#777475",
         grey200: "#ABA9AA",
         grey600: "#4E4C4C",
         grey700: "#3F3D3E",

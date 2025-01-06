@@ -53,7 +53,7 @@ const NewArrival = () => {
       {
         breakpoint: 480, // Small devices
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 1,
         },
       },
     ],
@@ -62,7 +62,7 @@ const NewArrival = () => {
   };
 
   return (
-    <div className="py-6 md:py-12 px-6 md:px-12 xl:px-24 mx-auto">
+    <div className=" mx-auto">
       <HeaderText text="New Arrivals"></HeaderText>
 
       <Slider {...settings}>

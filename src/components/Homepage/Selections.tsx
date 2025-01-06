@@ -26,7 +26,7 @@ const Selections = () => {
   ];
 
   return (
-    <section className="py-6 md:py-12 px-6 md:px-12 mx-0  lg:mx-20 xl:mx-24 bg-[#D2B28947]">
+    <section className="py-6 md:py-12 px-6 md:px-12 mx-0  bg-[#D2B28947]">
       <div className="max-w-7xl mx-auto">
         <HeaderText text="Top Selections for Today"></HeaderText>
 

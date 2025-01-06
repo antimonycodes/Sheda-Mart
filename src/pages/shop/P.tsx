@@ -8,7 +8,6 @@ import img4 from "../../assets/retro-sunglass-4.png";
 import UseStarRating from "@/utils/UseStarRating";
 // import FeaturedProducts from "@/components/Homepage/FeaturedProducts";
 import NewArrival from "@/components/Homepage/NewArrival";
-import Newsletter from "@/components/Homepage/Newsletter";
 // import { UseStarRating } from "@/utils/UseStarRating";
 
 interface Product {
@@ -77,7 +76,7 @@ const P = () => {
   };
 
   return (
-    <div className="py-4 md:px-20 space-y-4">
+    <div className="py-4 px-8 md:px-20 space-y-4">
       {/* Bedcrumbs */}
       <div className=" flex items-center gap-2 text-greyTitle text-sm">
         <h1>Sheda Mart</h1>
@@ -87,11 +86,11 @@ const P = () => {
         <h1>Glasses</h1>
       </div>
       {/* Product Preview */}
-      <div className=" flex justify-between gap-24">
+      <div className=" flex flex-col md:flex-row justify-between gap-24">
         {/* Product-Image Gallery */}
-        <div className=" basis-[50%]  flex gap-4">
+        <div className=" basis-[50%]  flex flex-col-reverse md:flex-row gap-4">
           {/* mini-images */}
-          <div className=" space-y-4">
+          <div className=" space-y-4 flex items-center">
             {product.images.map((img, index) => (
               <div
                 key={index}
@@ -163,34 +162,37 @@ const P = () => {
       <NewArrival />
       {/* Feedback Table */}
       <table className=" w-full max-w-[996px] mx-auto">
-        <tr className=" flex justify-between items-center border border-[#D1A3AF] px-5 py-[10px] ">
-          <th className=" text-greyBody font-bold text-2xl">
+        <tr className=" flex justify-between items-center border border-[#D1A3AF] px-1 md:px-5 py-[10px] ">
+          <th className=" text-greyBody font-bold text-base md:text-2xl">
             Verified Customer Feedback
           </th>
-          <th className=" text-[#570016] font-medium text-sm border-b-[3px] border-[#570016]">
+          <th className=" text-[#570016] font-medium text-[8px] md:text-sm border-b md:border-b-[3px] border-[#570016]">
             SEE ALL
           </th>
         </tr>
         <tbody>
-          <tr className=" flex w-full border border-[#D1A3AF] px-5 ">
+          <tr className=" flex flex-col md:flex-row w-full border border-[#D1A3AF] px-1 md:px-5 ">
             {/* Rating distr */}
-            <td className=" basis-[30%] border-r border-[#D1A3AF] py-2 space-y-4">
+            <td className=" basis-[30%] md:border-r border-[#D1A3AF] py-2 space-y-4 flex  flex-col md:items-start items-center">
               <h3 className=" text-greyBody font-medium">
                 VERIFIED RATINGS (10)
               </h3>
               {/*  */}
               <div className=" w-fit p-4 bg-[#E6E6E6] flex flex-col items-center gap-2">
                 <h1 className=" text-orange500 text-2xl font-bold">
-                  5<span className=" font-normal text-xl">/5</span>
+                  4<span className=" font-normal text-xl">/5</span>
                 </h1>
                 {/*  */}
                 <UseStarRating rating={product.rating} size="md" />
                 <p className=" text-greycaption textsm">10 verified ratings</p>
               </div>
               {/*  */}
-              <div>
+              <div className=" w-full">
                 {product.ratingDistribution.map((dist) => (
-                  <div key={dist.rating} className="flex items-center gap-">
+                  <div
+                    key={dist.rating}
+                    className="flex items-center gap- w-full"
+                  >
                     <span className="w-8 text-sm">{dist.rating} ★</span>
                     <span className="w-8 text-sm ">{dist.count}</span>
                     <div className="flex-1 h-[10px] bg-[#C5C4C4] rounded-[6.58px]">
@@ -203,8 +205,9 @@ const P = () => {
                 ))}
               </div>
             </td>
+            <hr />
             {/* Reviews */}
-            <td className=" flex-1 pl-[15%] py-2 space-y-4">
+            <td className=" flex-1 md:pl-[15%] py-2 space-y-4">
               <h1 className=" font-medium text-greySubtitle ">
                 Comments from verified purchases
               </h1>
@@ -231,7 +234,6 @@ const P = () => {
         </tbody>
       </table>
       {/*  */}
-      <Newsletter />
     </div>
   );
 };
