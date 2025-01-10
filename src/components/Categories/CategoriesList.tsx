@@ -33,12 +33,14 @@ const CategoriesList = () => {
 
   return (
     <div className=" md:px-24 py-4">
-      <h2 className="text-3xl font-bold text-center mb-8">Sheda Mart / Shop</h2>
+      <h2 className="lg:text-3xl font-bold text-center mb-8">
+        Sheda Mart / Shop
+      </h2>
 
       {/* Grid layout */}
       <div className="grid gap-4">
         {/* First Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 mx-4">
           {categories.slice(0, 6).map((category, index) => (
             <Link to="/categoryname">
               <div
@@ -50,7 +52,7 @@ const CategoriesList = () => {
                   alt={category.title}
                   className=" w-full object-cover  mb-2"
                 />
-                <h3 className="text-lg font-medium text-gray-800">
+                <h3 className="text-md font-medium text-gray-800">
                   {category.title}
                 </h3>
               </div>
@@ -59,7 +61,7 @@ const CategoriesList = () => {
         </div>
 
         {/* Second Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 justify-center gap-4 mx-8">
+        <div className="grid grid-cols-1 mobile:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center gap-4 mx-4 md:mx-8 xl:mx-24">
           {categories.slice(6).map((category, index) => (
             <div
               key={index}

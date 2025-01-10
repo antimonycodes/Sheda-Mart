@@ -1,5 +1,4 @@
 import CategoriesList from "@/components/Categories/CategoriesList";
-import Newsletter from "@/components/Homepage/Newsletter";
 
 const Categories = () => {
   return (

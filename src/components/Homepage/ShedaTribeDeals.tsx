@@ -1,8 +1,12 @@
 import HeaderText from "@/Shared/HeaderText";
-import img1 from "../../assets/tribe-img1.png";
-import img2 from "../../assets/tribe-img2.png";
-import img3 from "../../assets/tribe-img3.png";
-import img4 from "../../assets/tribe-img4.png";
+// import img1 from "../../assets/tribe-img1.png";
+// import img2 from "../../assets/tribe-img2.png";
+// import img3 from "../../assets/tribe-img3.png";
+// import img4 from "../../assets/tribe-img4.png";
+import img1 from "../../assets/group-tribe1.png";
+import img2 from "../../assets/group-tribe3.png";
+import img3 from "../../assets/group-tribe3.png";
+import img4 from "../../assets/group-tribe4.png";
 
 interface Deal {
   discount: string;
@@ -43,14 +47,14 @@ const ShedaTribeDeals = () => {
   ];
 
   return (
-    <div className="">
+    <div className=" px-4">
       {/* Tribe Banner */}
-      <div className="bg-[#800020] text-white mx-auto py-12 w-full px-3 rounded-lg mb-8 flex items-center justify-center">
+      <div className="bg-[#800020] text-white  py-4 lg:py-12 w-full px-4 rounded-lg mb-8 flex items-center justify-center">
         <div className=" flex gap-4 items-center mx-auto md:px-32">
-          <h2 className=" md:text-lg xl:text-xl font-semibold">
+          <h2 className=" text-sm md:text-lg xl:text-xl font-semibold">
             Be a part of Sheda Tribe
           </h2>
-          <p className=" text-xs md:text-sm lg:text-base opacity-90 max-w-[60%]  inline">
+          <p className=" text-xs md:text-sm lg:text-base opacity-90 max-w-[60%]  inline text-center lg:text-left">
             Join today to get access to exclusive deals hand fed with stories
             spice & trending lifestyle, gifts and more
           </p>
@@ -58,9 +62,9 @@ const ShedaTribeDeals = () => {
       </div>
 
       {/* Deals Section */}
-      <div className="mb-12">
+      <div className="mb-4">
         <HeaderText text="Top Sheda Tribe Week Deals"></HeaderText>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 ">
           {deals.map((deal, index) => (
             <div
               key={index}
@@ -75,8 +79,8 @@ const ShedaTribeDeals = () => {
                 </h3>
                 <p className="text-greyTitle text-sm">{deal.description}</p>
               </div>
-              <div className=" w-[241px] h-[241px] rounded-full bg-[#F28F77] mt-8"></div>
-              <div className=" absolute bottom-0">
+              {/* <div className=" w-[241px] h-[241px] rounded-full bg-[#F28F77] mt-8"></div> */}
+              <div className=" absolut bottom-0">
                 <img
                   src={deal.img}
                   alt=""

@@ -32,7 +32,7 @@ const FeaturedProducts = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     responsive: [
@@ -52,9 +52,15 @@ const FeaturedProducts = () => {
       {
         breakpoint: 480, // Small devices
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
         },
       },
+      // {
+      //   breakpoint: 370, // Small devices
+      //   settings: {
+      //     slidesToShow: 1,
+      //   },
+      // },
     ],
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -115,7 +121,7 @@ const SampleNextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute z-[999] -right-4 top-[50%] transform -translate-y-[50%] bg-white p-2 rounded-full shadow-lg cursor-pointer hover:bg-gray-100"
+      className="absolute z-[999] right-0 lg:-right-4 top-[50%] transform -translate-y-[50%] bg-white p-2 rounded-full shadow-lg cursor-pointer hover:bg-gray-100"
       onClick={onClick}
     >
       <ChevronRight className="w-6 h-6 text-gray-800" />
@@ -128,7 +134,7 @@ const SamplePrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute z-[999] -left-4 top-[50%] transform -translate-y-[50%] bg-white p-2 rounded-full shadow-lg cursor-pointer hover:bg-gray-100"
+      className="absolute z-[999] left-0 lg:-left-4  top-[50%] transform -translate-y-[50%] bg-white p-2 rounded-full shadow-lg cursor-pointer hover:bg-gray-100"
       onClick={onClick}
     >
       <ChevronLeft className="w-6 h-6 text-gray-800" />

@@ -76,83 +76,77 @@ const P = () => {
   };
 
   return (
-    <div className="py-4 px-8 md:px-20 space-y-4">
+    <div className="py-4 px-4 md:px-20 space-y-4">
       {/* Bedcrumbs */}
-      <div className=" flex items-center gap-2 text-greyTitle text-sm">
+      <div className=" flex items-center gap-1 text-greyTitle text-xs">
         <h1>Sheda Mart</h1>
         <img src={rightArrow} alt="" />
         <h1>Accessories</h1>
         <img src={rightArrow} alt="" />
         <h1>Glasses</h1>
       </div>
+
       {/* Product Preview */}
-      <div className=" flex flex-col md:flex-row justify-between gap-24">
-        {/* Product-Image Gallery */}
-        <div className=" basis-[50%]  flex flex-col-reverse md:flex-row gap-4">
-          {/* mini-images */}
-          <div className=" space-y-4 flex items-center">
+      <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-24">
+        {/* Product Image Gallery */}
+        <div className="w-full lg:w-1/2 flex flex-col-reverse lg:flex-row gap-4">
+          {/* Thumbnail Images */}
+          <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible">
             {product.images.map((img, index) => (
               <div
                 key={index}
-                className={` w-28 h-28 ${
-                  selectedImage === index && " border-[2px] border-[#800020] "
+                className={`w-20 h-20 lg:w-28 lg:h-28 cursor-pointer ${
+                  selectedImage === index ? "border-2 border-[#800020]" : ""
                 }`}
                 onClick={() => setSelectedImage(index)}
               >
                 <img
                   src={img}
                   alt=""
-                  className=" w-full h-full object-cover "
+                  className="w-full h-full object-cover rounded-md"
                 />
               </div>
             ))}
           </div>
-          {/* Main image */}
-          <div className=" h-[500px] w-[486px] transition-all duration-500">
+
+          {/* Main Image */}
+          <div className="w-full h-64 sm:h-96 lg:h-[500px]">
             <img
               src={product.images[selectedImage]}
               alt=""
-              className=" w-full h-full object-cover transition-all duration-500"
+              className="w-full h-full object-cover rounded-md transition-all duration-500"
             />
           </div>
         </div>
-        {/* Product-info */}
-        <div className=" basis-[50%] border border-[#D1A3AF] py-[10px] px-5">
-          <h1 className=" text-2xl text-greyBody border-b border-[#DBB8C166] pb-2">
+
+        {/* Product Information */}
+        <div className="w-full lg:w-1/2 border border-[#D1A3AF] p-4 md:p-6 rounded-md">
+          <h1 className="text-base md:text-2xl text-greyBody border-b border-[#DBB8C166] pb-2">
             {product.name}
           </h1>
-          <div className=" space-y-4 py-2">
-            {/* price */}
-            <h1 className=" text-greyTitle font-bold text-3xl">
+          <div className="space-y-4 py-2">
+            <h1 className="text-greyTitle font-bold text-base lg:text-2xl md:text-3xl">
               ₦{product.price}
             </h1>
-            {/* star rating */}
-            <div className=" flex items-center gap-4">
+
+            <div className="flex items-center gap-4">
               <UseStarRating rating={product.rating} size="md" />
-              <span className=" text-greycaption text-sm">
+              <span className="text-greycaption text-sm">
                 {product.totalRatings} Ratings
               </span>
             </div>
-            {/*  */}
-            <h2 className=" text-greyDark text-sm">Low in stock</h2>
-            <h2 className=" text-greyDark text-sm">Colour</h2>
-            <h1 className=" text-greyBody font-bold">Product Details</h1>
-            <div className=" flex items-center gap-2">
-              <h1 className=" text-greyBody font-medium">Origin:</h1>
-              <span className=" text-greySubtitle">Imported from China</span>
-            </div>
-            {/*  */}
-            <h1 className=" text-greyBody font-bold">About this item</h1>
-            <p className=" text-greySubtitle text-sm ]">
-              All sunglasses are brand new and shipped carefully to ensure no
-              damage during transit. Happy Shopping!
-            </p>
-            {/*  */}
-            <h1 className=" text-greyBody font-bold">
-              Shipping and return policies
+
+            <p className="text-greyDark text-sm">Low in stock</p>
+            <p className="text-greyDark text-sm">Color: Burgundy</p>
+
+            <h1 className="text-greyBody font-bold">Product Details</h1>
+            <p className="text-greySubtitle text-sm">{product.description}</p>
+
+            <h1 className="text-greyBody font-bold">
+              Shipping and Return Policies
             </h1>
-            {/*  */}
-            <button className=" w-full bg-burgundy p-[10px] rounded text-cream50 font-medium text-sm">
+
+            <button className="w-full bg-burgundy py-2 rounded-md text-cream50 font-medium text-sm">
               ADD TO CART
             </button>
           </div>

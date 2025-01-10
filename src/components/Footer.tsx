@@ -119,7 +119,7 @@ const Footer: React.FC = () => {
           {/* Year */}
           <div>
             <p className="text-center font-medium text-cream50 text-xs">
-              &copy; 2023-2024 CompanyName Inc.
+              &copy;2025 CompanyName Inc.
             </p>
           </div>
         </div>

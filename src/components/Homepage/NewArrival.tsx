@@ -18,7 +18,10 @@ interface Products {
 }
 
 const NewArrival = () => {
-  const [hoveredProduct, setHoveredProduct] = useState<null | Number>(null);
+  const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
+
+  // ✅ Correct typing for liked items
+  const [likedItems, setLikedItems] = useState<Record<number, boolean>>({});
 
   const products: Products[] = [
     { id: 1, name: "Rounded Sunglasses", price: 5500, img: img1 },
@@ -33,37 +36,39 @@ const NewArrival = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     autoplay: true,
     responsive: [
-      {
-        breakpoint: 1024, // Large devices
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 768, // Medium devices
-        settings: {
-          slidesToShow: 3,
-        },
-      },
-      {
-        breakpoint: 480, // Small devices
-        settings: {
-          slidesToShow: 1,
-        },
-      },
+      { breakpoint: 1024, settings: { slidesToShow: 4, slidesToScroll: 3 } },
+      { breakpoint: 768, settings: { slidesToShow: 3 } },
+      { breakpoint: 480, settings: { slidesToShow: 2 } },
     ],
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
 
+  // ✅ Toggle like function with event handling
+  const toggleLike = (
+    id: number,
+    event: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    event.stopPropagation(); // Prevents event bubbling
+    setLikedItems((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
   return (
-    <div className=" mx-auto">
-      <HeaderText text="New Arrivals"></HeaderText>
+    <div className="mx-auto px-2">
+      <div className="hidden md:inline">
+        <HeaderText text="New Arrivals" />
+      </div>
+      <div className="mb-4 px-2 flex items-center justify-between text-greyTitle">
+        <h1 className="font-medium">New Arrivals</h1>
+        <div className="text-[10px]">See More</div>
+      </div>
 
       <Slider {...settings}>
         {products.map((product) => (
@@ -79,14 +84,23 @@ const NewArrival = () => {
                 alt={product.name}
                 className="w-full h-64 object-cover"
               />
-              {/* Heart icon - only visible on hover */}
-              {hoveredProduct === product.id && (
-                <button className="absolute top-2 right-2 p-1 rounded-full bg-white  transition-opacity duration-200">
-                  <Heart className="w-5 h-5 text-pink-500" />
+
+              {(hoveredProduct === product.id || likedItems[product.id]) && (
+                <button
+                  onClick={(e) => toggleLike(product.id, e)}
+                  className="absolute top-2 right-2 p-1 rounded-full bg-white transition-opacity duration-200"
+                >
+                  <Heart
+                    className={`w-6 h-6 ${
+                      likedItems[product.id]
+                        ? "fill-[#570016] text-[#570016]"
+                        : "text-gray-300"
+                    }`}
+                  />
                 </button>
               )}
 
-              <div className=" px-4">
+              <div className="px-4">
                 <div className="mt-4">
                   <h3 className="text-sm text-greycaption font-medium">
                     {product.name}
@@ -96,14 +110,9 @@ const NewArrival = () => {
                   </p>
                 </div>
 
-                {/* Add to Cart button - visible on hover */}
                 {hoveredProduct === product.id && (
                   <div className="w-full">
-                    <Button
-                      text="Add to cart"
-                      width="100%"
-                      bgColor="#942944"
-                    ></Button>
+                    <Button text="Add to cart" width="100%" bgColor="#942944" />
                   </div>
                 )}
               </div>
@@ -115,12 +124,12 @@ const NewArrival = () => {
   );
 };
 
-// Custom Next Arrow Component
+// Custom Next Arrow
 const SampleNextArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute z-[999] -right-4 top-[50%] transform -translate-y-[50%] bg-white p-2 rounded-full shadow-lg cursor-pointer hover:bg-gray-100"
+      className="absolute z-[999] right-0 xl:-right-4 top-[50%] transform -translate-y-[50%] bg-white p-2 rounded-full shadow-lg cursor-pointer hover:bg-gray-100"
       onClick={onClick}
     >
       <ChevronRight className="w-6 h-6 text-gray-800" />
@@ -128,12 +137,12 @@ const SampleNextArrow = (props: any) => {
   );
 };
 
-// Custom Previous Arrow Component
+// Custom Prev Arrow
 const SamplePrevArrow = (props: any) => {
   const { onClick } = props;
   return (
     <div
-      className="absolute z-[999] -left-4 top-[50%] transform -translate-y-[50%] bg-white p-2 rounded-full shadow-lg cursor-pointer hover:bg-gray-100"
+      className="absolute z-[999] left-0 xl:-left-4 top-[50%] transform -translate-y-[50%] bg-white p-2 rounded-full shadow-lg cursor-pointer hover:bg-gray-100"
       onClick={onClick}
     >
       <ChevronLeft className="w-6 h-6 text-gray-800" />

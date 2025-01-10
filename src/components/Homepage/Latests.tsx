@@ -28,9 +28,9 @@ const Latests = () => {
     },
   ];
   return (
-    <div className=" mb-4">
+    <div className=" mb-4 px-4">
       <div>
-        <div className="latest-gradient rounded-[12px] text-white p-4 lg:p-6 mb-6 flex items-center justify-around">
+        <div className="latest-gradient rounded-[12px] text-white p-8 lg:p-6 mb-6 flex items-center justify-around">
           <h2 className=" basis-1/2 lg:text-6xl font-bold">The Latest</h2>
           <p className=" text-xs lg:text-2xl ">
             Discover what's new at Sheda Mart
@@ -47,11 +47,11 @@ const Latests = () => {
                 <img
                   src={article.img}
                   alt={article.title}
-                  className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full object-cover transition-transform duration-300 group-hover:scale-105 rounded-2xl "
                 />
               </div>
               <div className="py-[10px] px-5">
-                <h3 className="font-bold text-3xl mb-2">{article.title}</h3>
+                <h3 className="font-bold lg:text-3xl mb-2">{article.title}</h3>
                 <p className="text-sm text-black">{article.description}</p>
               </div>
             </div>

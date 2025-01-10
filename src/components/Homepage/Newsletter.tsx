@@ -1,8 +1,6 @@
-import React from "react";
-
 const Newsletter: React.FC = () => {
   return (
-    <div className="bg-[#D2D1D133] py-6  w-full flex justify-center items-center">
+    <div className="bg-[#D2D1D133] py-6  w-full flex justify-center items-center mt-8">
       <div className=" px-4 max-w-[753px]">
         <p className="mb-4 text-grey700 font-medium tracking-[-1%]">
           Not a fan of junk mail? Neither are we. We promise to send you only

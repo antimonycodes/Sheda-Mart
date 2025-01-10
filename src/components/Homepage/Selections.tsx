@@ -26,11 +26,11 @@ const Selections = () => {
   ];
 
   return (
-    <section className="py-6 md:py-12 px-6 md:px-12 mx-0  bg-[#D2B28947]">
+    <section className="py-6 md:py-16 px-6 md:px-12 mx-0  bg-[#D2B28947]">
       <div className="max-w-7xl mx-auto">
         <HeaderText text="Top Selections for Today"></HeaderText>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:px-12">
           {cards.map((card, index) => (
             <Card
               key={index}

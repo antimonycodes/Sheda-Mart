@@ -3,6 +3,7 @@ import profile from "../assets/profile.svg";
 import cart from "../assets/carticon.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Links {
   name: string;
@@ -22,70 +23,164 @@ const Nav = () => {
     { name: "Consultant", path: "/" },
   ];
 
+  // Mobile Menu Slide Down Animation
+  const menuVariants = {
+    hidden: {
+      y: "-100vh",
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+    exit: {
+      y: "-100vh",
+      opacity: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeIn",
+      },
+    },
+  };
+
+  // Logo Slide Down Animation
+  const logoVariants = {
+    hidden: {
+      y: -50,
+      opacity: 0,
+    },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  // Menu Links Animation with Stagger Effect
+  const linkVariants = {
+    hidden: {
+      y: 20,
+      opacity: 0,
+    },
+    visible: (index: number) => ({
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.3 + index * 0.2, // Stagger animation for each link
+        duration: 0.5,
+      },
+    }),
+  };
+
   return (
-    <nav className="bg-white p-4">
-      <div className="container mx-auto flex items-center justify-between">
-        {/* Hamburger Icon for Mobile */}
-        <div className="md:hidden">
-          <img src={hamburger} onClick={toggleMenu} alt="Menu" />
-        </div>
-
-        {/* Logo - Centered with Hamburger on Mobile */}
-        <div>
-          <h1 className=" text-burgundy text-base sm:text-xl  xl:text-3xl font-semibold">
-            SHEDA MART
-          </h1>
-        </div>
-
-        {/* Desktop Links */}
-        <div className="hidden md:flex items-center space-x-4">
-          {links.map((link, index) => (
-            <Link to={link.path}>
-              <h1 key={index} className="block text-greyTitle font-medium">
-                {link.name}
-              </h1>
-            </Link>
-          ))}
-          <input
-            type="text"
-            placeholder="Search"
-            className=" border-[0.5px] border-[#5B5853] px-5 py-1 placeholder:text-grey placeholder:text-xs rounded-sm outline-none"
-          />
-        </div>
-
-        {/* Profile and Cart Icons */}
-        <div className="flex items-center space-x-4">
-          <div className=" flex items-center gap-2">
-            <img src={profile} alt="Profile" />
-            <h1 className=" hidden md:block font-semibold text-greyTitle">
-              Account
+    <nav className="bg-white p-4 flex flex-col items-center">
+      <div className="container mx-auto w-full flex flex-col gap-4  ">
+        <div className=" flex items-center justify-between">
+          {/* Hamburger Icon for Mobile */}
+          <div className="md:hidden">
+            <img src={hamburger} onClick={toggleMenu} alt="Menu" />
+          </div>
+          {/* Logo */}
+          <div>
+            <h1 className="text-burgundy text-base sm:text-xl xl:text-3xl font-semibold">
+              SHEDA MART
             </h1>
           </div>
-          <Link to="/cart">
-            <div className=" flex items-center gap-2">
-              <img src={cart} alt="Cart" />
-              <h1 className=" hidden md:block font-semibold text-greyTitle">
-                Cart
+
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center space-x-4">
+            {links.map((link, index) => (
+              <Link key={index} to={link.path}>
+                <h1 className="block text-greyTitle font-medium">
+                  {link.name}
+                </h1>
+              </Link>
+            ))}
+            <input
+              type="text"
+              placeholder="Search"
+              className="border-[0.5px] border-[#5B5853] px-5 py-1 placeholder:text-grey placeholder:text-xs rounded-sm outline-none"
+            />
+          </div>
+
+          {/* Profile and Cart Icons */}
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center gap-2">
+              <img src={profile} alt="Profile" />
+              <h1 className="hidden md:block font-semibold text-greyTitle">
+                Account
               </h1>
             </div>
-          </Link>
+            <Link to="/cart">
+              <div className="flex items-center gap-2">
+                <img src={cart} alt="Cart" />
+                <h1 className="hidden md:block font-semibold text-greyTitle">
+                  Cart
+                </h1>
+              </div>
+            </Link>
+          </div>
+        </div>
+        <div className=" w-full flex items-center justify-center ">
+          <h1 className=" md:hidden w-full text-greycaption text-sm">
+            What can we help you find?
+          </h1>
         </div>
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden mt-4 space-y-2">
-          {links.map((link, index) => (
-            <h1
-              key={index}
-              // href={link.path}
-              className="block text-greyTitle"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            variants={menuVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            className="origin-top md:hidden fixed top-0 left-0 w-full h-screen bg-yellow-400 flex flex-col items-center justify-center space-y-6 z-50"
+          >
+            {/* Logo and Close Button */}
+            <motion.div
+              variants={logoVariants}
+              initial="hidden"
+              animate="visible"
+              className="absolute top-4 px-4 flex items-center gap-16 w-full"
             >
-              {link.name}
-            </h1>
-          ))}
-        </div>
-      )}
+              <img
+                src={hamburger}
+                onClick={toggleMenu}
+                alt="Close Menu"
+                className="cursor-pointer"
+              />
+              <h1 className="text-burgundy text-xl font-semibold">
+                SHEDA MART
+              </h1>
+            </motion.div>
+
+            {/* Animated Links */}
+            {links.map((link, index) => (
+              <Link key={index} to={link.path} onClick={toggleMenu}>
+                <motion.div
+                  custom={index}
+                  variants={linkVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  className="text-greyTitle text-3xl font-medium cursor-pointer"
+                >
+                  {link.name}
+                </motion.div>
+              </Link>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
