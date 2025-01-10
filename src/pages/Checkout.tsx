@@ -108,10 +108,12 @@ const Checkout: React.FC = () => {
 
   return (
     <div className="w-full bg-gray-50 min-h-screen py-2 px-4 md:px-16">
-      <div className="flex items-cente w-full justify-between mb-16">
+      <div className="flex items-center gap-6 w-full flex-col  justify-between mb-16">
         <div className="w-full h-fit  flex items-center gap-8 ">
-          <h1 className="text-2xl font-bold text-burgundy ">SHEDA MART</h1>
-          <div className="flex items-center gap-2">
+          <h1 className=" text-base sm:text-xl xl:text-3xl  font-bold text-burgundy ">
+            SHEDA MART
+          </h1>
+          <div className="md:flex items-center gap-2 hidden">
             <img src={secure} alt="" className="w-full" />
             <p className="font-medium text-greyTitle">SecurePayment</p>
           </div>
@@ -154,15 +156,15 @@ const Checkout: React.FC = () => {
               <div className="flex items-center justify-between w-full text-greyTitle border-b">
                 <div className="flex items-center gap-3">
                   <CustomCheckbox section="address" />
-                  <h2 className="font-bold  lg:text-2xl mb-2">
+                  <h2 className="font-bold text-sm  lg:text-2xl mb-2">
                     1. Customer Address
                   </h2>
                 </div>
-                <h3 className="text-sm">Change</h3>
+                {/* <h3 className="text-sm">Change</h3> */}
               </div>
               <div className="space-y-2 py-2 text-greyBody">
                 <p className="text-sm">Agbabiaka Ololade</p>
-                <p className="text-sm">
+                <p className=" text-xs md:text-sm">
                   No 30, Oyo road, opposite UI post office, Oyo-Ibadan.
                   +2347037915621
                 </p>
@@ -178,15 +180,15 @@ const Checkout: React.FC = () => {
               <div className="flex items-center justify-between w-full text-greyTitle border-b">
                 <div className="flex items-center gap-3">
                   <CustomCheckbox section="delivery" />
-                  <h2 className="font-bold text-lg mb-2">
+                  <h2 className="font-bold text-sm md:text-lg mb-2">
                     2. Delivery Details
                   </h2>
                 </div>
-                <h3 className="text-sm">Change</h3>
+                {/* <h3 className="text-sm">Change</h3> */}
               </div>
               <div className="py-2 space-y-2 text-greyBody">
                 <p className="text-sm">Pick-up Station</p>
-                <p className="text-sm">
+                <p className=" text-xs md:text-sm">
                   Delivery between 20 August and 25 August
                 </p>
               </div>
@@ -201,7 +203,7 @@ const Checkout: React.FC = () => {
               <div className="flex items-center justify-between w-full text-greyTitle border-b">
                 <div className="flex items-center gap-3">
                   <CustomCheckbox section="payOnDelivery" />
-                  <h2 className="font-bold text-lg mb-2 text-greycaption">
+                  <h2 className="font-bold text-sm md:text-lg mb-2 text-greycaption">
                     3. Payment method
                   </h2>
                 </div>

@@ -55,12 +55,12 @@ const FeaturedProducts = () => {
           slidesToShow: 2,
         },
       },
-      // {
-      //   breakpoint: 370, // Small devices
-      //   settings: {
-      //     slidesToShow: 1,
-      //   },
-      // },
+      {
+        breakpoint: 360, // Small devices
+        settings: {
+          slidesToShow: 1,
+        },
+      },
     ],
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,

@@ -7,7 +7,8 @@ import img3 from "../../assets/retro-sunglass-3.png";
 import img4 from "../../assets/retro-sunglass-4.png";
 import UseStarRating from "@/utils/UseStarRating";
 // import FeaturedProducts from "@/components/Homepage/FeaturedProducts";
-import NewArrival from "@/components/Homepage/NewArrival";
+// import NewArrival from "@/components/Homepage/NewArrival";
+import FeaturedProducts from "@/components/Homepage/FeaturedProducts";
 // import { UseStarRating } from "@/utils/UseStarRating";
 
 interface Product {
@@ -76,7 +77,7 @@ const P = () => {
   };
 
   return (
-    <div className="py-4 px-4 md:px-20 space-y-4">
+    <div className="py-4 px-4 lg:px-20 space-y-4">
       {/* Bedcrumbs */}
       <div className=" flex items-center gap-1 text-greyTitle text-xs">
         <h1>Sheda Mart</h1>
@@ -85,11 +86,10 @@ const P = () => {
         <img src={rightArrow} alt="" />
         <h1>Glasses</h1>
       </div>
-
       {/* Product Preview */}
-      <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-24">
+      <div className="flex flex-col md:flex-row justify-between gap-8 lg:gap-24">
         {/* Product Image Gallery */}
-        <div className="w-full lg:w-1/2 flex flex-col-reverse lg:flex-row gap-4">
+        <div className="w-full  flex flex-col-reverse lg:flex-row gap-4">
           {/* Thumbnail Images */}
           <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible">
             {product.images.map((img, index) => (
@@ -110,7 +110,7 @@ const P = () => {
           </div>
 
           {/* Main Image */}
-          <div className="w-full h-64 sm:h-96 lg:h-[500px]">
+          <div className="w-full h-[300px] md:h-[500px]  bg-yellow-300">
             <img
               src={product.images[selectedImage]}
               alt=""
@@ -153,7 +153,13 @@ const P = () => {
         </div>
       </div>
       {/* RElated Products */}
-      <NewArrival />
+      {/* <NewArrival /> */}
+      <div className=" py-24">
+        <h1 className=" text-greyTitle bold text-xl mb-1 font-semibold">
+          Products related to this item
+        </h1>
+        <FeaturedProducts />
+      </div>{" "}
       {/* Feedback Table */}
       <table className=" w-full max-w-[996px] mx-auto">
         <tr className=" flex justify-between items-center border border-[#D1A3AF] px-1 md:px-5 py-[10px] ">

@@ -57,9 +57,17 @@ const CartItem = () => {
     );
   };
 
+  const sliceText = (text: string) => {
+    return window.innerWidth < 768
+      ? text.length > 25
+        ? text.slice(0, 25) + "..."
+        : text
+      : text;
+  };
+
   return (
-    <div className="flex flex-col md:flex-row gap-4 w-full md:justify-between px-4 py-8 md:px-8 md:py-12 lg:px-12 lg:py-16 xl:px-16">
-      <div className="border border-[#D2D1D1] rounded-[10px] w-full md:w-2/3">
+    <div className="flex flex-col md:flex-row w-full md:justify-between gap-24 px-4 py-8 md:px-8 md:py-12 lg:px-12 lg:py-16 xl:px-16">
+      <div className="border border-[#D2D1D1] rounded-[10px]  w-full basis-2/3">
         <div className="p-[10px]">
           <h1 className="md:text-xl lg:text-2xl text-greyBody">
             {cartItems.length} item(s) in your cart
@@ -70,33 +78,33 @@ const CartItem = () => {
           {cartItems.map((item) => (
             <div key={item.id} className="w-full border-b border-[#D2D1D1] p-5">
               <div className="flex flex-col md:flex-row justify-between gap-4">
-                <div className="flex md:flex-row items-center justify-between gap-4">
-                  <div className="w-14 h-14 md:w-48">
+                <div className="flex md:flex-row items-center justify-between gap-4 w-full">
+                  <div className="w-20 h-20 md:w-24 md:h-24">
                     <img
                       src={item.img}
                       alt={item.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover rounded-md"
                     />
                   </div>
-                  <div className="flex flex-col justify-between text-greyTitle">
-                    <h1 className="font-medium text-sm truncate w-20 mobile:w-36 md:w-auto md:text-base">
-                      {item.name}
+                  <div className="flex flex-col justify-between text-greyTitle w-full">
+                    <h1 className="font-medium text-sm md:text-base">
+                      {sliceText(item.name)}
                     </h1>
-                    <p className="text-xs">{item.stockValue} in stock</p>
+                    <p className="text-xs mb-2">{item.stockValue} in stock</p>
+                    <img
+                      className="w-5 md:w-6 cursor-pointer"
+                      onClick={() => deleteItem(item.id)}
+                      src={deleteIcon}
+                      alt="Delete"
+                    />
                   </div>
-                  <button
-                    className=" w-12 md:w-full"
-                    onClick={() => deleteItem(item.id)}
-                  >
-                    <img src={deleteIcon} alt="Delete" />
-                  </button>
                 </div>
-                <div className="flex md:flex-col justify-between items-center">
+                <div className=" w-full flex md:flex-col justify-betwee gap-2 items-center">
                   <div>
                     <h1 className="text-greyTitle font-bold">
                       ₦{item.discount}
                     </h1>
-                    <div className=" flex items-center gap-1">
+                    <div className="flex items-center gap-1 w-full">
                       <p className="text-greyDisabled text-[10px] line-through">
                         ₦{item.price}
                       </p>
@@ -127,17 +135,17 @@ const CartItem = () => {
           ))}
         </div>
       </div>
-      <div className="border border-[#D2D1D1] rounded-[10px] h-fit p-5 w-full ">
-        <h1 className="text-xs text-greyBody font-bold">CART SUMMARY</h1>
+      <div className="border border-[#D2D1D1] rounded-[10px] h-fit  w-full flex-1 ">
+        <h1 className="text-xs text-greyBody font-bold  p-4">CART SUMMARY</h1>
         <hr className="my-2" />
-        <div className="flex items-center justify-between my-4">
+        <div className="flex items-center justify-between my-4 px-4">
           <h2 className="text-greySubtitle font-medium">Subtotal</h2>
           <h1 className="md:text-xl text-greyTitle font-bold">
             ₦{calculateSubtotal()}
           </h1>
         </div>
         <Link to="/select-payment">
-          <button className="bg-surfaceLighter py-4 w-full rounded-md font-bold text-xs text-white">
+          <button className=" bg-surfaceLighter py-4 px6 w-full rounded-md font-bold text-xs text-white">
             CONFIRM ORDER
           </button>
         </Link>

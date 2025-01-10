@@ -9,6 +9,7 @@ import img4 from "../../assets/NA4.png";
 import { useState } from "react";
 import Button from "@/Shared/Button";
 import HeaderText from "@/Shared/HeaderText";
+import toast from "react-hot-toast";
 
 interface Products {
   id: number;
@@ -40,9 +41,12 @@ const NewArrival = () => {
     slidesToScroll: 1,
     autoplay: true,
     responsive: [
+      { breakpoint: 1440, settings: { slidesToShow: 5, slidesToScroll: 1 } },
       { breakpoint: 1024, settings: { slidesToShow: 4, slidesToScroll: 3 } },
       { breakpoint: 768, settings: { slidesToShow: 3 } },
       { breakpoint: 480, settings: { slidesToShow: 2 } },
+      { breakpoint: 360, settings: { slidesToShow: 1 } }, // Added more breakpoints
+      { breakpoint: 320, settings: { slidesToShow: 1 } },
     ],
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -53,11 +57,21 @@ const NewArrival = () => {
     id: number,
     event: React.MouseEvent<HTMLButtonElement>
   ) => {
-    event.stopPropagation(); // Prevents event bubbling
-    setLikedItems((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
+    event.stopPropagation();
+    setLikedItems((prev) => {
+      const isLiked = !prev[id];
+      toast.success(
+        isLiked ? "Added to favorites " : "Removed from favorites "
+      );
+      return {
+        ...prev,
+        [id]: isLiked,
+      };
+    });
+  };
+
+  const handleAddToCart = (productName: string) => {
+    toast.success(`${productName} added to cart 🛒`);
   };
 
   return (
@@ -112,7 +126,12 @@ const NewArrival = () => {
 
                 {hoveredProduct === product.id && (
                   <div className="w-full">
-                    <Button text="Add to cart" width="100%" bgColor="#942944" />
+                    <Button
+                      text="Add to cart"
+                      width="100%"
+                      bgColor="#942944"
+                      onClick={() => handleAddToCart(product.name)}
+                    />
                   </div>
                 )}
               </div>

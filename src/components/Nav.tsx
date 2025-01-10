@@ -4,6 +4,7 @@ import cart from "../assets/carticon.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import { X } from "lucide-react";
 
 interface Links {
   name: string;
@@ -89,9 +90,11 @@ const Nav = () => {
           </div>
           {/* Logo */}
           <div>
-            <h1 className="text-burgundy text-base sm:text-xl xl:text-3xl font-semibold">
-              SHEDA MART
-            </h1>
+            <Link to="/">
+              <h1 className="text-burgundy text-base sm:text-xl xl:text-3xl font-semibold">
+                SHEDA MART
+              </h1>
+            </Link>
           </div>
 
           {/* Desktop Links */}
@@ -143,22 +146,23 @@ const Nav = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="origin-top md:hidden fixed top-0 left-0 w-full h-screen bg-yellow-400 flex flex-col items-center justify-center space-y-6 z-50"
+            className="origin-top md:hidden fixed top-0 left-0 w-full h-screen bg-[#D2B289] flex flex-col items-center justify-center space-y-6 z-50"
           >
             {/* Logo and Close Button */}
             <motion.div
               variants={logoVariants}
               initial="hidden"
               animate="visible"
-              className="absolute top-4 px-4 flex items-center gap-16 w-full"
+              className="absolute top-4 px-4 flex items-center justify-between w-full"
             >
-              <img
+              <X onClick={toggleMenu} className="cursor-pointer text-" />
+              {/* <img
                 src={hamburger}
                 onClick={toggleMenu}
                 alt="Close Menu"
                 className="cursor-pointer"
-              />
-              <h1 className="text-burgundy text-xl font-semibold">
+              /> */}
+              <h1 className=" text-burgundy text-xl font-semibold">
                 SHEDA MART
               </h1>
             </motion.div>
@@ -172,7 +176,7 @@ const Nav = () => {
                   initial="hidden"
                   animate="visible"
                   exit="hidden"
-                  className="text-greyTitle text-3xl font-medium cursor-pointer"
+                  className="text-burgundy text-3xl font-medium cursor-pointer"
                 >
                   {link.name}
                 </motion.div>
