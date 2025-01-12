@@ -156,7 +156,7 @@ const Checkout: React.FC = () => {
               <div className="flex items-center justify-between w-full text-greyTitle border-b">
                 <div className="flex items-center gap-3">
                   <CustomCheckbox section="address" />
-                  <h2 className="font-bold text-sm  lg:text-2xl mb-2">
+                  <h2 className="font-bold text-sm  lg:text-lg mb-2">
                     1. Customer Address
                   </h2>
                 </div>
@@ -344,7 +344,7 @@ const Checkout: React.FC = () => {
             </div>
           </div>
           {checkedSections.prePayNow && (
-            <div className="border border-[#C7CCD0] p-5 flex items-center justify-between">
+            <div className="border border-[#C7CCD0] p-5 flex flex-col md:flex-row items-center justify-between">
               <div>
                 <div className=" bg-[#D2B28980] p-4 flex items-center gap-2 w-fit  border-b">
                   <img src={wallet} alt="" />

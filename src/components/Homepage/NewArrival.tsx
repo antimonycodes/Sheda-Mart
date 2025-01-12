@@ -10,6 +10,7 @@ import { useState } from "react";
 import Button from "@/Shared/Button";
 import HeaderText from "@/Shared/HeaderText";
 import toast from "react-hot-toast";
+import cartIcon from "../../assets/carticon.svg";
 
 interface Products {
   id: number;
@@ -71,7 +72,7 @@ const NewArrival = () => {
   };
 
   const handleAddToCart = (productName: string) => {
-    toast.success(`${productName} added to cart 🛒`);
+    toast.success(`${productName} added to cart `);
   };
 
   return (

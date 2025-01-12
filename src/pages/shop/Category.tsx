@@ -30,7 +30,7 @@ const Category = () => {
   ];
   return (
     <div className=" px-4 md:px-24 py-4">
-      <div className=" flex items-center gap-2 text-greyTitle text-sm mb-6">
+      <div className=" flex items-center gap-[2px] md:gap-2 text-greyTitle text-sm mb-6">
         <h1>Sheda Mart</h1>
         <img src={rightArrow} alt="" />
         <Link to="/categories">

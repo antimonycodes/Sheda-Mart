@@ -4,7 +4,7 @@ import cart from "../assets/carticon.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 interface Links {
   name: string;
@@ -81,12 +81,13 @@ const Nav = () => {
   };
 
   return (
-    <nav className="bg-white p-4 flex flex-col items-center">
-      <div className="container mx-auto w-full flex flex-col gap-4  ">
+    <nav className="bg-white p-4 md:px-20  flex flex-col items-center">
+      <div className=" mx-auto w-full flex flex-col  gap-4  ">
         <div className=" flex items-center justify-between">
           {/* Hamburger Icon for Mobile */}
           <div className="md:hidden">
-            <img src={hamburger} onClick={toggleMenu} alt="Menu" />
+            {/* <img src={hamburger} onClick={toggleMenu} alt="Menu" /> */}
+            <Menu size={25} onClick={toggleMenu} />
           </div>
           {/* Logo */}
           <div>
@@ -131,10 +132,16 @@ const Nav = () => {
             </Link>
           </div>
         </div>
-        <div className=" w-full flex items-center justify-center ">
-          <h1 className=" md:hidden w-full text-greycaption text-sm">
+        {/* Search input- Mobile */}
+        <div className=" w-full flex items-center justify-center bg-emerald-500  relative">
+          {/* <h1 className=" md:hidden w-full text-greycaption text-sm">
             What can we help you find?
-          </h1>
+          </h1> */}
+          <input
+            type="text"
+            placeholder="What can we help you with?"
+            className=" w-full md:hidden placeholder:text-grey  placeholder: placeholder:left-0 placeholder:top-0 placeholder:-x-1/2 outline-none focus:outl  "
+          />
         </div>
       </div>
 
@@ -146,7 +153,7 @@ const Nav = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="origin-top md:hidden fixed top-0 left-0 w-full h-screen bg-[#D2B289] flex flex-col items-center justify-center space-y-6 z-50"
+            className="origin-top md:hidden fixed z-50 top-0 left-0 w-full h-screen bg-[#D2B289] flex flex-col items-center justify-center space-y-6"
           >
             {/* Logo and Close Button */}
             <motion.div
