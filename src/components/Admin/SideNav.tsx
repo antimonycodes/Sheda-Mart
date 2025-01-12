@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, KeyboardEvent } from "react";
+import { useState, useRef, useEffect } from "react";
 import dashboardIcon from "../../assets/adminAssests/dashboard.svg";
 import productIcon from "../../assets/adminAssests/people.svg";
 import orderIcon from "../../assets/carticon.svg";
@@ -130,17 +130,17 @@ const SideNav = () => {
     { name: "Settings", path: "", icon: settingsIcon },
   ];
 
-  const isMenuActive = (menu: NavItem): boolean => {
-    if (isCollapsed) {
-      // When collapsed, check if any submenu item is active
-      return menu.subMenus
-        ? menu.subMenus.some((subItem) => subItem.title === activeMenu)
-        : menu.name === activeMenu;
-    } else {
-      // When expanded, check the direct active state
-      return menu.name === activeMenu;
-    }
-  };
+  // const isMenuActive = (menu: NavItem): boolean => {
+  //   if (isCollapsed) {
+  //     // When collapsed, check if any submenu item is active
+  //     return menu.subMenus
+  //       ? menu.subMenus.some((subItem) => subItem.title === activeMenu)
+  //       : menu.name === activeMenu;
+  //   } else {
+  //     // When expanded, check the direct active state
+  //     return menu.name === activeMenu;
+  //   }
+  // };
 
   useEffect(() => {
     const currentPath = location.pathname;

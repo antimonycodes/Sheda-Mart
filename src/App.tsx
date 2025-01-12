@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Homepage from "./pages/shop/Homepage";
 import Categories from "./pages/shop/Categories";
 import Category from "./pages/shop/Category";
@@ -22,7 +22,7 @@ import CustomersList from "./pages/admin/CustomersList";
 import CustomerDetails from "./pages/admin/CustomerDetails";
 
 function App() {
-  const location = useLocation(); // Access current route
+  // const location = useLocation(); // Access current route
 
   // Check if the current path is '/select-payment' (Checkout page)
   // const isCheckoutPage = location.pathname === "/select-payment";

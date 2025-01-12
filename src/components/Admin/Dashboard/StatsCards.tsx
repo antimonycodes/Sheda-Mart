@@ -3,7 +3,6 @@ import transactionsIcon from "../../../assets/transactionsIcon.svg";
 import totalsalesIcon from "../../../assets/totalSalesIcon.svg";
 import reportsIcon from "../../../assets/reportsIcon.svg";
 import logisticsIcon from "../../../assets/logisticsIcon.svg";
-import { Info } from "lucide-react";
 
 interface StatCards {
   icon: string;
