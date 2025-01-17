@@ -79,3 +79,7 @@
     );
   background-blend-mode: normal; /* Adjust blend mode if necessary */
 }
+
+.custom-shadow {
+  box-shadow: 0px 0px 12px 0px #8000201a;
+}

@@ -11,7 +11,7 @@ const AdminLayout = () => {
         <div className=" hidden md:block ">
           <SideNav />
         </div>
-        <div className=" flex-1 px-4 w-full ">
+        <div className=" flex-1 px-4 w-full h-screen md:overflow-y-scroll  ">
           <Outlet />
         </div>
       </div>

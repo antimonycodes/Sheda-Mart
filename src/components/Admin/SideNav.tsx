@@ -97,7 +97,7 @@ const SideNav = () => {
   };
 
   const navMenus: NavItem[] = [
-    { name: "Dashboard", path: "dashboard", icon: dashboardIcon },
+    { name: "Dashboard", path: "", icon: dashboardIcon },
     {
       name: "Products",
       path: "/Products",

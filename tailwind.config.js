@@ -26,6 +26,8 @@ export default {
         orange500: "#F68B1E",
         burgundy: "#800020",
         surfaceLighter: "#942944",
+        textLabel: "#570016",
+        green400: "#299929",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
