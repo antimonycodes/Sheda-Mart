@@ -1,4 +1,4 @@
-import hamburger from "../assets/hamburger.svg";
+// import hamburger from "../assets/hamburger.svg";
 import profile from "../assets/profile.svg";
 import cart from "../assets/carticon.svg";
 import { useState } from "react";
@@ -93,7 +93,7 @@ const Nav = () => {
           <div>
             <Link to="/">
               <h1 className="text-burgundy text-base sm:text-xl xl:text-3xl font-semibold">
-                SHEDA MART
+                SHEDA MART.
               </h1>
             </Link>
           </div>
